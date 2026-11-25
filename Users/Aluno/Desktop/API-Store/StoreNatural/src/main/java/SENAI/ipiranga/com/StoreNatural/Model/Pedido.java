@@ -3,6 +3,8 @@ package SENAI.ipiranga.com.StoreNatural.Model;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,6 +28,7 @@ public class Pedido {
 	
 	@ManyToOne
 	@JoinColumn(name = "produto_id", nullable = false)
+	@JsonIgnoreProperties("pedido")
 	private Produto produto;
 	
 	private int quantidade; 

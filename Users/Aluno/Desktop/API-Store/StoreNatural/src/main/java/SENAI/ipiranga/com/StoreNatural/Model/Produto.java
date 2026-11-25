@@ -2,6 +2,8 @@ package SENAI.ipiranga.com.StoreNatural.Model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,7 +28,7 @@ import jakarta.persistence.Table;
 	private String cor;
 	
 	@OneToMany(mappedBy = "produto")
-	
+	@JsonIgnoreProperties("produto")
 	private List <Pedido> pedido;
 
 	public Long getId() {
@@ -57,7 +59,7 @@ import jakarta.persistence.Table;
 		return quantidadeEstoque;
 	}
 
-	public void setQuantidadeEstoque(Integer quantidadeEstoque) {
+	public void setQuantidadeEstoque(double quantidadeEstoque) {
 		this.quantidadeEstoque = quantidadeEstoque;
 	}
 
